@@ -12,15 +12,15 @@ var srv = socks.createServer(function (info: any, accept: any, deny: any) {
     var socket;
     if (socket = accept(true)) {
         console.log(socket)
-        var body = 'Hello ' + info.srcAddr + '!\n\nToday is: ' + (new Date());
-        socket.end([
-            'HTTP/1.1 200 OK',
-            'Connection: close',
-            'Content-Type: text/plain',
-            'Content-Length: ' + Buffer.byteLength(body),
-            '',
-            body
-        ].join('\r\n'));
+        // var body = 'Hello ' + info.srcAddr + '!\n\nToday is: ' + (new Date());
+        // socket.end([
+        //     'HTTP/1.1 200 OK',
+        //     'Connection: close',
+        //     'Content-Type: text/plain',
+        //     'Content-Length: ' + Buffer.byteLength(body),
+        //     '',
+        //     body
+        // ].join('\r\n'));
     }
     accept();
 
