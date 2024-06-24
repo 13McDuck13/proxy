@@ -11,6 +11,7 @@ var srv = socks.createServer(function (info: any, accept: any, deny: any) {
     }
     var socket;
     if (socket = accept(true)) {
+        console.log(socket)
         var body = 'Hello ' + info.srcAddr + '!\n\nToday is: ' + (new Date());
         socket.end([
             'HTTP/1.1 200 OK',
