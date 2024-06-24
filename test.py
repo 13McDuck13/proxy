@@ -6,7 +6,7 @@ def proxy_server():
     password = "password"
 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind(('localhost', 8888))
+    server.bind(('0.0.0.0', 8888))
     server.listen(5)
 
     print("[*] Listening on localhost:8888")
