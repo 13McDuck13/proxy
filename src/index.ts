@@ -28,3 +28,5 @@ const server = socks.createServer((info:any, accept:any, deny:any) => {
 server.listen(1080, '0.0.0.0', () => {
     console.log('SOCKS v5 proxy server running on localhost:1080');
 });
+
+server.useAuth(socks.auth.None());
