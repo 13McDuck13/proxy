@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@e9x/simple-socks": "^1.0.0",
+    "@pondwader/socks5-server": "^1.0.9",
     "net": "^1.0.2",
     "node-socks5-server": "^1.1.0",
     "simple-socks": "^3.1.0",

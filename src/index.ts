@@ -1,7 +1,9 @@
-import { createProxyServer } from "@e9x/simple-socks";
+import { createServer } from "@pondwader/socks5-server"
 
-const server = createProxyServer();
+const server = createServer()
+server.setConnectionHandler((connection, sendStatus) => {
+    console.log(connection)
+    sendStatus('REQUEST_GRANTED');
+})
 
-server.listen(1080, "0.0.0.0", () => {
-    console.log("SOCKS5 proxy server started on 0.0.0.0:1080");
-});
+server.listen(1080)
