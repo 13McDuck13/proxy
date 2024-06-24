@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@e9x/simple-socks@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@e9x/simple-socks/-/simple-socks-1.0.0.tgz#81db8d6de0170169c3fe76720a5dcf5f97884a5d"
+  integrity sha512-o1peEKSTfL0JOg+loDFoVK+I2PgMf1mT8m/dLI83KNJES+S8LGzzdF5DogBKVUp1KQfXNHT+w/O43x2KJ4IxzA==
+  dependencies:
+    binary "^0.3.0"
+
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
   resolved "https://registry.npmjs.org/@isaacs/cliui/-/cliui-8.0.2.tgz"
@@ -333,6 +340,7 @@ stack-trace@0.0.x:
   integrity sha512-KGzahc7puUKkzyMt+IqAep+TVNbKP+k2Lmwhub39m1AsTSkaDutx56aDCo+HLDzf/D26BIHTJWNiTG1KAJiQCg==
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -351,6 +359,7 @@ string-width@^5.0.1, string-width@^5.1.2:
     strip-ansi "^7.0.1"
 
 "strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+  name strip-ansi-cjs
   version "6.0.1"
   resolved "https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -373,6 +382,11 @@ ts-socks@^0.9.3:
   version "0.9.3"
   resolved "https://registry.npmjs.org/ts-socks/-/ts-socks-0.9.3.tgz"
   integrity sha512-q1yE1lTKAeSEqy/QFMmqnlxz1j/GYSo8tvJrpXhJJDIh4uJF3T+t7U6ua9r/HvM8yzBjDRFnejLz74jrwzMdPg==
+
+typescript@^5.5.2:
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.5.2.tgz#c26f023cb0054e657ce04f72583ea2d85f8d0507"
+  integrity sha512-NcRtPEOsPFFWjobJEtfihkLCZCXZt/os3zf8nTxjVH3RvTSxjrCamJpbExGvYOF+tFHc3pA65qpdwPbzjohhew==
 
 undici-types@~5.26.4:
   version "5.26.5"

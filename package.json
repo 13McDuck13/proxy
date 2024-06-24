@@ -1,11 +1,13 @@
 {
   "dependencies": {
+    "@e9x/simple-socks": "^1.0.0",
     "net": "^1.0.2",
     "node-socks5-server": "^1.1.0",
     "simple-socks": "^3.1.0",
     "socks": "^2.8.3",
     "socksv5": "^0.0.6",
-    "ts-socks": "^0.9.3"
+    "ts-socks": "^0.9.3",
+    "typescript": "^5.5.2"
   },
   "scripts": {
     "dev": "ts-node ./src/index.ts"
