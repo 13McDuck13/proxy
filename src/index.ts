@@ -13,7 +13,7 @@ server.listen(SOCKS_PROXY_PORT, '0.0.0.0', () => {
     console.log(`SOCKSv5 proxy server is listening on port ${SOCKS_PROXY_PORT}`);
 });
 
-srv.useAuth(socks.auth.None());
+server.useAuth(server.auth.None());
 
 // Создание HTTP прокси-сервера
 server.on('proxyConnect', (info:any, socket:any, head:any) => {
