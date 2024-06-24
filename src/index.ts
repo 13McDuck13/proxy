@@ -9,7 +9,7 @@ const server = createServer((info:any, accept:any, deny:any) => {
     accept();
 });
 
-server.listen(SOCKS_PROXY_PORT, 'localhost', () => {
+server.listen(SOCKS_PROXY_PORT, '0.0.0.0', () => {
     console.log(`SOCKSv5 proxy server is listening on port ${SOCKS_PROXY_PORT}`);
 });
 
