@@ -17,6 +17,7 @@ const server = socks.createServer((info:any, accept:any, deny:any) => {
         clientSocket.on('close', () => {
             console.log(`Connection to ${info.dstAddr}:${info.dstPort} closed`);
         });
+        accept()
     }else {
         // Отклоняем соединение к ненужному адресу и порту
         accept()
