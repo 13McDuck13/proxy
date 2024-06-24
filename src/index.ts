@@ -21,7 +21,7 @@ srv.on('connection', (socket:any) => {
     // Подключение установлено
     console.log('Соединение установлено');
 
-    // Допишем свой текст в конце
+    console.log(socket)
     const textToAdd = '\nТекст, который необходимо добавить в конец сокета';
     socket.write(textToAdd, 'utf-8', () => {
         // Текст успешно добавлен
