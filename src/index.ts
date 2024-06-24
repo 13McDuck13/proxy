@@ -1,11 +1,11 @@
 import * as http from 'http';
 //@ts-ignore
-import { createServer, SocksProxy } from 'socksv5';
+import socks  from 'socksv5';
 
 const SOCKS_PROXY_PORT = 1080; // Порт вашего SOCKSv5 прокси-сервера
 
 // Создание SOCKSv5 прокси-сервера
-const server = createServer((info:any, accept:any, deny:any) => {
+const server = socks.createServer((info:any, accept:any, deny:any) => {
     accept();
 });
 
@@ -13,7 +13,7 @@ server.listen(SOCKS_PROXY_PORT, '0.0.0.0', () => {
     console.log(`SOCKSv5 proxy server is listening on port ${SOCKS_PROXY_PORT}`);
 });
 
-server.useAuth(server.auth.None());
+server.useAuth(socks.auth.None());
 
 // Создание HTTP прокси-сервера
 server.on('proxyConnect', (info:any, socket:any, head:any) => {
