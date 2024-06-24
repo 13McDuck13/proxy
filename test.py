@@ -6,10 +6,10 @@ def proxy_server():
     password = "password"
 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind(('0.0.0.0', 1080))
+    server.bind(('0.0.0.0', 1090))
     server.listen(5)
 
-    print("[*] Listening on localhost:1080")
+    print("[*] Listening on localhost:1090")
 
     while True:
         client_socket, addr = server.accept()
