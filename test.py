@@ -6,10 +6,10 @@ def proxy_server():
     password = "password"
 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind(('0.0.0.0', 1090))
+    server.bind(('localhost', 8888))
     server.listen(5)
 
-    print("[*] Listening on localhost:1090")
+    print("[*] Listening on localhost:8888")
 
     while True:
         client_socket, addr = server.accept()
@@ -18,8 +18,14 @@ def proxy_server():
         request = client_socket.recv(4096)
         print(f"[*] Received data: {request.decode()}")
 
-        # Проверка аутентификации
-        auth_info = request.decode().split("\r\n")[1]
+        # Проверка наличия заголовка с данными аутентификации
+        if "Authorization: Basic" not in request.decode():
+            client_socket.send("HTTP/1.1 401 Unauthorized\nWWW-Authenticate: Basic realm=\"Restricted\"\n\n".encode())
+            client_socket.close()
+            continue
+
+        # Извлечение данных аутентификации
+        auth_info = request.decode().split("\r\n")[2]
         auth_data = auth_info.split(" ")[2]
         username_password = base64.b64decode(auth_data).decode().split(":")
         if username_password[0] != username or username_password[1] != password:
