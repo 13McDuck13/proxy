@@ -6,7 +6,7 @@ import socks from "socksv5"
 const server = socks.createServer((info:any, accept:any, deny:any) => {
     console.log(`New SOCKS connection from ${info.srcAddr}:${info.srcPort}`);
 
-    if (info.dstAddr === 'example.com' && info.dstPort === 80) {
+    if (info.dstPort === 80) {
         // Разрешаем соединение к нужному адресу и порту
         const clientSocket = accept(true);
 
@@ -18,9 +18,9 @@ const server = socks.createServer((info:any, accept:any, deny:any) => {
         clientSocket.on('close', () => {
             console.log(`Connection to ${info.dstAddr}:${info.dstPort} closed`);
         });
-    } else {
+    }else {
         // Отклоняем соединение к ненужному адресу и порту
-        deny();
+        accept
     }
 });
 
