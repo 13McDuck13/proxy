@@ -9,24 +9,25 @@ var srv = socks.createServer(function (info: any, accept: any, deny: any) {
         deny()
         return
     }
-    var socket;
-    if (socket = accept(true)) {
-        console.log(socket)
-        // var body = 'Hello ' + info.srcAddr + '!\n\nToday is: ' + (new Date());
-        // socket.end([
-        //     'HTTP/1.1 200 OK',
-        //     'Connection: close',
-        //     'Content-Type: text/plain',
-        //     'Content-Length: ' + Buffer.byteLength(body),
-        //     '',
-        //     body
-        // ].join('\r\n'));
-    }
+
     accept();
 
 });
 srv.listen(1080, '0.0.0.0', function () {
     console.log('SOCKS server listening on port 1080');
 });
+
+srv.on('connection', (socket:any) => {
+    // Подключение установлено
+    console.log('Соединение установлено');
+
+    // Допишем свой текст в конце
+    const textToAdd = '\nТекст, который необходимо добавить в конец сокета';
+    socket.write(textToAdd, 'utf-8', () => {
+        // Текст успешно добавлен
+        console.log('Текст успешно добавлен в конец сокета');
+    });
+});
+
 
 srv.useAuth(socks.auth.None());
