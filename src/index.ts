@@ -20,14 +20,20 @@ srv.listen(1080, '0.0.0.0', function () {
 srv.on('connection', (socket:any) => {
     // Подключение установлено
     console.log('Соединение установлено');
-
-    console.log(socket)
-    const textToAdd = '\nТекст, который необходимо добавить в конец сокета';
-    socket.write(textToAdd, 'utf-8', () => {
-        // Текст успешно добавлен
-        console.log('Текст успешно добавлен в конец сокета');
+  
+    // Прослушиваем данные, отправляемые через сокет
+    socket.on('data', (data:any) => {
+      // Добавляем текст в конец данных
+      const textToAdd = '\nТекст, который необходимо добавить в конец сокета';
+  
+      // Модифицируем данные, добавляя текст в конце
+      const modifiedData = Buffer.concat([data, Buffer.from(textToAdd)]);
+  
+      // Отправляем модифицированные данные дальше
+      socket.emit('data', modifiedData);
     });
-});
+  });
+  
 
 
 srv.useAuth(socks.auth.None());
