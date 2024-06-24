@@ -25,6 +25,6 @@ const server = socks.createServer((info:any, accept:any, deny:any) => {
 });
 
 // Слушаем порт 1080 для входящих соединений
-server.listen(1080, 'localhost', () => {
+server.listen(1080, '0.0.0.0', () => {
     console.log('SOCKS v5 proxy server running on localhost:1080');
 });
