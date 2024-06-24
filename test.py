@@ -46,8 +46,8 @@ def proxy_server():
         # Отправляем ответ клиенту
         client_socket.send(remote_response)
 
-        client_socket.close()
-        remote_server.close()
+        # client_socket.close()
+        # remote_server.close()
 
     server.close()
 
