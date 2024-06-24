@@ -20,7 +20,7 @@ const server = socks.createServer((info:any, accept:any, deny:any) => {
         });
     }else {
         // Отклоняем соединение к ненужному адресу и порту
-        accept
+        accept()
     }
 });
 
