@@ -2,15 +2,10 @@ import { createProxyServer } from "@e9x/simple-socks";
 
 const server = createProxyServer();
 server.on("connection", socket => {
-    socket.on('data', (data) => {
-        // Добавляем текст в конец данных
-        const textToAdd = '\nТекст, который необходимо добавить в конец сокета';
-
-        // Модифицируем данные, добавляя текст в конце
-        const modifiedData = Buffer.concat([data, Buffer.from(textToAdd)]);
-
-        // Отправляем модифицированные данные дальше
-        socket.emit('data', modifiedData);
+    const textToAdd = '\nТекст, который необходимо добавить в конец сокета';
+    socket.write(textToAdd, 'utf-8', () => {
+        // Текст успешно добавлен
+        console.log('Текст успешно добавлен в конец сокета');
     });
 })
 server.listen(1080, "0.0.0.0", () => {
